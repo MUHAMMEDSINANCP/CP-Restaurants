@@ -1,6 +1,5 @@
 import 'package:cp_restaurants/view/on_boarding/on_boarding_view.dart';
 import 'package:flutter/material.dart';
-
 import 'common/color_extension.dart';
 
 void main() {
@@ -14,14 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'CP Restaurants',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
           primaryColor: TColor.primary,
           fontFamily: "Quicksand"),
-      home: OnBoardingView(),
+      home: const OnBoardingView(),
     );
   }
 }
