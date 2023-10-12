@@ -15,7 +15,8 @@ class TitleSubTitleLabel extends StatelessWidget {
       required this.subtitle,
       this.textAlign = TextAlign.center,
       this.fontSizeTitle = 24,
-      this.fontSizeSubTitle = 12, this.crossAxisAlignment = CrossAxisAlignment.center });
+      this.fontSizeSubTitle = 12,
+      this.crossAxisAlignment = CrossAxisAlignment.center});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +27,17 @@ class TitleSubTitleLabel extends StatelessWidget {
           title,
           textAlign: textAlign,
           style: TextStyle(
-              color: TColor.text, fontSize: fontSizeTitle, fontWeight: FontWeight.w700),
+              color: TColor.text,
+              fontSize: fontSizeTitle,
+              fontWeight: FontWeight.w700),
         ),
         Text(
           subtitle,
           textAlign: textAlign,
           style: TextStyle(
-              color: TColor.gray, fontSize: fontSizeSubTitle, fontWeight: FontWeight.w700),
+              color: TColor.gray,
+              fontSize: fontSizeSubTitle,
+              fontWeight: FontWeight.w700),
         ),
       ],
     );

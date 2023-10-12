@@ -35,15 +35,11 @@ class FoodItemCell extends StatelessWidget {
               ),
             ),
           ),
-
-
-           Padding(
-             padding: const EdgeInsets.all(8.0),
-             child: Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-
-                     Text(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
                 fObj["name"].toString(),
                 maxLines: 1,
                 textAlign: TextAlign.left,
@@ -52,7 +48,6 @@ class FoodItemCell extends StatelessWidget {
                     fontSize: 14,
                     fontWeight: FontWeight.w700),
               ),
-
               const SizedBox(
                 height: 4,
               ),
@@ -65,10 +60,10 @@ class FoodItemCell extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.w700),
               ),
-
-              const SizedBox(height: 4,),
-
-               Text(
+              const SizedBox(
+                height: 4,
+              ),
+              Text(
                 fObj["category"].toString(),
                 maxLines: 1,
                 textAlign: TextAlign.left,
@@ -77,11 +72,8 @@ class FoodItemCell extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.w700),
               ),
-           
-                   ]),
-           )
-
-
+            ]),
+          )
         ],
       ),
     );

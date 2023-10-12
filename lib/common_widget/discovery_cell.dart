@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../common/color_extension.dart';
@@ -38,7 +37,7 @@ class DiscoveryCell extends StatelessWidget {
                 color: TColor.text, fontSize: 16, fontWeight: FontWeight.w700),
           ),
           Text(
-            "${ fObj["place"].toString() } Place",
+            "${fObj["place"].toString()} Place",
             textAlign: TextAlign.center,
             style: TextStyle(
                 color: TColor.gray, fontSize: 12, fontWeight: FontWeight.w700),

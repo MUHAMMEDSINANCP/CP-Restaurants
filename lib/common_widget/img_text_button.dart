@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../common/color_extension.dart';
@@ -8,7 +7,12 @@ class ImgTextButton extends StatelessWidget {
   final String subTitle;
   final String image;
   final VoidCallback onPressed;
-  const ImgTextButton({super.key, required this.title, required this.subTitle, required this.image, required this.onPressed });
+  const ImgTextButton(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.image,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class ImgTextButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-           ClipRRect(
+          ClipRRect(
             borderRadius: BorderRadius.circular(5),
             child: Image.asset(
               image,

@@ -18,25 +18,26 @@ class SelectionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: FittedBox(child:  Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-                color: isSelect ? TColor.primary : TColor.text,
-                fontSize: 16,
-                fontWeight: FontWeight.w700),
-          ),
-          Text(
-            subTitle,
-            style: TextStyle(
-                color: isSelect ? TColor.primary : TColor.gray,
-                fontSize: 12,
-                fontWeight: FontWeight.w700),
-          )
-        ],
-      ),
+      child: FittedBox(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                  color: isSelect ? TColor.primary : TColor.text,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700),
+            ),
+            Text(
+              subTitle,
+              style: TextStyle(
+                  color: isSelect ? TColor.primary : TColor.gray,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700),
+            )
+          ],
+        ),
       ),
     );
   }

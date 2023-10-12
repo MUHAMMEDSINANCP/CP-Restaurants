@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../common/color_extension.dart';
-import 'RoundTextButton.dart';
+import 'round_text_button.dart';
 
 class TopFoodiesUserRow extends StatelessWidget {
   final Map uObj;
   final bool showRank;
-  const TopFoodiesUserRow({super.key, required this.uObj, this.showRank = true});
+  const TopFoodiesUserRow(
+      {super.key, required this.uObj, this.showRank = true});
 
   @override
   Widget build(BuildContext context) {
@@ -80,25 +80,24 @@ class TopFoodiesUserRow extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-
-              RoundTextButton(title: "Follow", isSelect: uObj["is_follow"].toString() == "1" , onPressed: (){
-
-              },  ),
-              
+              RoundTextButton(
+                title: "Follow",
+                isSelect: uObj["is_follow"].toString() == "1",
+                onPressed: () {},
+              ),
               if (showRank)
-              const SizedBox(
-                height: 4,
-              ),
-
-              if(showRank)
-              Text(
-                "#${ uObj["rank"].toString() }",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: getTypeColor(uObj["type"].toString()),
-                    fontSize: 22,
-                    fontWeight: FontWeight.w700),
-              ),
+                const SizedBox(
+                  height: 4,
+                ),
+              if (showRank)
+                Text(
+                  "#${uObj["rank"].toString()}",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      color: getTypeColor(uObj["type"].toString()),
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700),
+                ),
             ],
           )
         ],

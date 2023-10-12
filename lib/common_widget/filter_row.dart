@@ -18,37 +18,36 @@ class FilterRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: TColor.text, fontSize: 16, fontWeight: FontWeight.w700),
-              ),
-              IconButton(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  color: TColor.text,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700),
+            ),
+            IconButton(
                 // padding: EdgeInsets.zero,
-                  onPressed: onPressed,
-                  icon: Icon(
-                    icon,
-                    size: 30,
-                    color: iconColor,
-                  ))
-            ],
-          ),
-    
-           const SizedBox(
-            height: 4,
-          ),
-          const Divider(
-            color: Colors.black26,
-          ),
-    
-        ],
-      
+                onPressed: onPressed,
+                icon: Icon(
+                  icon,
+                  size: 30,
+                  color: iconColor,
+                ))
+          ],
+        ),
+        const SizedBox(
+          height: 4,
+        ),
+        const Divider(
+          color: Colors.black26,
+        ),
+      ],
     );
   }
 }

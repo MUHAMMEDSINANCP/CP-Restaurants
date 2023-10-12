@@ -24,21 +24,17 @@ class PopularFoodItemCell extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-
           Container(
             width: double.maxFinite,
             height: double.maxFinite,
             decoration: BoxDecoration(
-              color: TColor.list[index % TColor.list.length]
-                  .withOpacity(0.6),
+              color: TColor.list[index % TColor.list.length].withOpacity(0.6),
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-
           ClipRRect(
             borderRadius: BorderRadius.circular(5),
-            child: Container(
-             
+            child: SizedBox(
               width: media.width * 0.22,
               height: double.maxFinite,
               child: Image.asset(
@@ -47,11 +43,10 @@ class PopularFoodItemCell extends StatelessWidget {
               ),
             ),
           ),
-          
           Padding(
             padding: const EdgeInsets.only(left: 8, right: 8, bottom: 10),
-            child:   Text(
-             "${fObj["outlets"].toString()} Outlets",
+            child: Text(
+              "${fObj["outlets"].toString()} Outlets",
               maxLines: 1,
               textAlign: TextAlign.left,
               style: const TextStyle(

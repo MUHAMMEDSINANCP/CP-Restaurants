@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../common/color_extension.dart';
@@ -7,7 +6,11 @@ class MenuRow extends StatelessWidget {
   final String title;
   final String icon;
   final VoidCallback onPressed;
-  const MenuRow({super.key, required this.title, required this.icon, required this.onPressed});
+  const MenuRow(
+      {super.key,
+      required this.title,
+      required this.icon,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

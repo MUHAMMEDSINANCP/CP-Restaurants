@@ -1,5 +1,5 @@
-import 'package:cp_restaurants/view/on_boarding/on_boarding_view.dart';
-import 'package:flutter/material.dart';
+import 'package:cp_restaurants/view/main_tab/main_tab_view.dart';
+ import 'package:flutter/material.dart';
 import 'common/color_extension.dart';
 
 void main() {
@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           primaryColor: TColor.primary,
           fontFamily: "Quicksand"),
-      home: const OnBoardingView(),
+      // home: const OnBoardingView(),
+      home: const MainTabView(),
     );
   }
 }

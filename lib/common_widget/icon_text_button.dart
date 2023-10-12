@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../common/color_extension.dart';
@@ -8,7 +7,12 @@ class IconTextButton extends StatelessWidget {
   final String subTitle;
   final String icon;
   final VoidCallback onPressed;
-  const IconTextButton({super.key, required this.title, required this.subTitle, required this.icon, required this.onPressed });
+  const IconTextButton(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.icon,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

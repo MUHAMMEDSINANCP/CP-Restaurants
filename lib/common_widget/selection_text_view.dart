@@ -7,7 +7,10 @@ class SelectionTextView extends StatelessWidget {
   final String actionTitle;
   final VoidCallback onSeeAllTap;
   const SelectionTextView(
-      {super.key, required this.title, required this.onSeeAllTap, this.actionTitle = "See all"});
+      {super.key,
+      required this.title,
+      required this.onSeeAllTap,
+      this.actionTitle = "See all"});
 
   @override
   Widget build(BuildContext context) {

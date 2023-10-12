@@ -21,15 +21,11 @@ class OutletListRow extends StatelessWidget {
                 color: Colors.black12, blurRadius: 3, offset: Offset(0, 2))
           ]),
       child: Row(
-        
         children: [
-
-
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-          
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -42,8 +38,8 @@ class OutletListRow extends StatelessWidget {
                           fontWeight: FontWeight.w700),
                     ),
                     Container(
-                      padding:
-                          const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 2, horizontal: 8),
                       decoration: BoxDecoration(
                         color: rateVal < 4.0 ? TColor.rating : TColor.primary,
                         borderRadius: BorderRadius.circular(5),

@@ -42,7 +42,6 @@ class ImgButton extends StatelessWidget {
                 ),
               ),
             if (isMore)
-            
               Column(
                 children: [
                   Text(
@@ -53,11 +52,10 @@ class ImgButton extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.w700),
                   ),
-
-                   const Text(
+                  const Text(
                     "Photos",
                     textAlign: TextAlign.center,
-                    style:  TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
                         fontSize: 12,
                         fontWeight: FontWeight.w700),
