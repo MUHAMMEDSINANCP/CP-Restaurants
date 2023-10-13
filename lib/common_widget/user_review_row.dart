@@ -126,9 +126,9 @@ class UserReviewRow extends StatelessWidget {
             height: 8,
           ),
           ReadMoreText(
-            'I enjoyed the food of the restaurant. The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service. I will be back in the… I enjoyed the food of the restaurant. The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service. I will be back in the…',
+            'I enjoyed the food of the restaurant. The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service. I will be back in the… I enjoyed the food of the restaurant.The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service.I will be back in the restaurant as well sonn as possible. ',
             trimLines: 4,
-            colorClickableText: TColor.text,
+            colorClickableText: Colors.grey,
             trimMode: TrimMode.Line,
             style: TextStyle(
                 fontSize: 14, fontWeight: FontWeight.bold, color: TColor.text),

@@ -23,6 +23,7 @@ class _PhotoDetailsViewState extends State<PhotoDetailsView> {
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: Colors.white,
               elevation: 1,
               pinned: true,

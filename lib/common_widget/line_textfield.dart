@@ -27,25 +27,26 @@ class LineTextField extends StatelessWidget {
         obscureText: obscureText,
         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
         decoration: InputDecoration(
-            hintText: hitText,
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: TColor.gray),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: TColor.primary),
-            ),
-            suffixIcon: isClear
-                ? IconButton(
-                    onPressed: () {
-                      if (onClearPressed != null) {
-                        onClearPressed!();
-                      }
-                    },
-                    icon: Image.asset(
-                      "assets/img/cancel.png",
-                      width: 15,
-                    ))
-                : null),
+          hintText: hitText,
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: TColor.gray),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: TColor.primary),
+          ),
+          suffixIcon: isClear
+              ? IconButton(
+                  onPressed: () {
+                    if (onClearPressed != null) {
+                      onClearPressed!();
+                    }
+                  },
+                  icon: Image.asset(
+                    "assets/img/cancel.png",
+                    width: 15,
+                  ))
+              : null,
+        ),
       ),
     );
   }

@@ -22,16 +22,18 @@ class FoodItemCell extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(5), topRight: Radius.circular(5)),
-            child: Container(
-              color: TColor.secondary,
-              width: media.width * 0.4,
-              height: media.width * 0.25,
-              child: Image.asset(
-                fObj["image"].toString(),
-                fit: BoxFit.cover,
+          Expanded(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(5), topRight: Radius.circular(5)),
+              child: Container(
+                color: TColor.secondary,
+                width: media.width * 0.4,
+                height: media.width * 0.25,
+                child: Image.asset(
+                  fObj["image"].toString(),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -61,7 +63,7 @@ class FoodItemCell extends StatelessWidget {
                     fontWeight: FontWeight.w700),
               ),
               const SizedBox(
-                height: 4,
+                height: 2,
               ),
               Text(
                 fObj["category"].toString(),

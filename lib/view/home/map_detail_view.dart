@@ -290,9 +290,9 @@ class _MapDetailViewState extends State<MapDetailView> {
                   ),
                
                   TextButton.icon(onPressed: (){
-
+                             
                   }, icon: Image.asset("assets/img/mapView.png", width: 25,  ), label:  Text(
-                      "Open in Apple Maps",
+                      "Open in Google Maps",
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           color: TColor.primary,

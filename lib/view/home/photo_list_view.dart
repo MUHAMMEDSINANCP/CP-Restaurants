@@ -132,6 +132,7 @@ class _PhotoListViewState extends State<PhotoListView> {
                   color: Colors.white,
                 ),
                 child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
                       SelectionButton(

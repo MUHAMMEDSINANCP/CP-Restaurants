@@ -44,17 +44,21 @@ class PopularFoodItemCell extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 10),
+            padding: const EdgeInsets.only(
+              left: 8,
+              right: 8,
+              bottom: 4,
+            ),
             child: Text(
               "${fObj["outlets"].toString()} Outlets",
               maxLines: 1,
               textAlign: TextAlign.left,
               style: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.white70,
                   fontSize: 16,
                   fontWeight: FontWeight.w700),
             ),
-          )
+          ),
         ],
       ),
     );

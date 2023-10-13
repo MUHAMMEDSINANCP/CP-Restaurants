@@ -227,8 +227,8 @@ class _NearByMapListViewState extends State<NearByMapListView> {
               backgroundColor: Colors.white,
               elevation: 1,
               pinned: false,
-              floating: true,
-             
+              floating: true, 
+              automaticallyImplyLeading: false,
               primary: false,
               expandedHeight: 90,
               flexibleSpace: Padding(

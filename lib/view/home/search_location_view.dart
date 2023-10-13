@@ -195,6 +195,7 @@ class _SearchLocationViewState extends State<SearchLocationView> {
                           ],
                         ),
                       ),
+                      
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         children: cArr.map((cObj) {
