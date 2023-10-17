@@ -1,3 +1,6 @@
+import 'package:cp_restaurants/view/my_profile/my_level_view.dart';
+import 'package:cp_restaurants/view/my_profile/my_network_view.dart';
+import 'package:cp_restaurants/view/my_profile/my_review_view.dart';
 import 'package:flutter/material.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/icon_text_button.dart';
@@ -95,23 +98,25 @@ class _MyProfileViewState extends State<MyProfileView> {
                   IconTextButton(
                     icon: "assets/img/network.png",
                     title: "Network",
+                    color: TColor.primary,
                     subTitle: "603",
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const MyNetworkView()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyNetworkView()));
                     },
                   ),
                   IconTextButton(
                     icon: "assets/img/review.png",
                     title: "My Reviews",
+                    color: TColor.rating,
                     subTitle: "953",
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const MyReviewView()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyReviewView()));
                     },
                   ),
                   IconTextButton(
@@ -119,10 +124,10 @@ class _MyProfileViewState extends State<MyProfileView> {
                     title: "My Level",
                     subTitle: "Sliver",
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const MyLevelView()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyLevelView()));
                     },
                   )
                 ],
@@ -161,11 +166,14 @@ class _MyProfileViewState extends State<MyProfileView> {
                   ),
                   const Divider(
                     color: Colors.black26,
-                    height: 1,
+                    height: 2,
                   ),
                   MenuRow(
                     icon: "assets/img/sign_out.png",
                     title: "Sign Out",
+                    showleftIcon: false,
+                    txtcolor: Colors.red,
+                    color: Colors.red,
                     onPressed: () {},
                   ),
                   const Divider(

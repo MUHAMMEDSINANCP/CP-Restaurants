@@ -1,3 +1,4 @@
+import 'package:cp_restaurants/common/extension.dart';
 import 'package:cp_restaurants/view/home/legendry_list_view.dart';
 import 'package:flutter/material.dart';
 import '../../common/color_extension.dart';
@@ -22,7 +23,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  bool isSelectCity = false;
+  bool isSelectCity = true;
   TextEditingController txtSearch = TextEditingController();
 
   List legendaryArr = [
@@ -121,7 +122,7 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Text(
                           "New York City",
-                          textAlign: TextAlign.left,
+                          textAlign: TextAlign.start,
                           style: TextStyle(
                               color: TColor.text,
                               fontSize: 20,
@@ -129,7 +130,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         Text(
                           "Your location",
-                          textAlign: TextAlign.left,
+                          textAlign: TextAlign.start,
                           style: TextStyle(
                               color: TColor.gray,
                               fontSize: 16,
@@ -140,7 +141,7 @@ class _HomeViewState extends State<HomeView> {
                     actions: [
                       IconButton(
                         icon: Image.asset(
-                          "assets/img/notification.png",
+                          "assets/img/discovery_icon.png",
                           width: 24,
                           height: 30,
                         ),
@@ -150,18 +151,18 @@ class _HomeViewState extends State<HomeView> {
                           });
                         },
                       ),
-                      IconButton(
-                        icon: Image.asset(
-                          "assets/img/add.png",
-                          width: 24,
-                          height: 30,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            isSelectCity = false;
-                          });
-                        },
-                      ),
+                      // IconButton(
+                      //   icon: Image.asset(
+                      //     "assets/img/add.png",
+                      //     width: 24,
+                      //     height: 30,
+                      //   ),
+                      //   onPressed: () {
+                      //     setState(() {
+                      //       isSelectCity = false;
+                      //     });
+                      //   },
+                      // ),
                     ],
                   ),
                   SliverAppBar(
@@ -333,8 +334,10 @@ class _HomeViewState extends State<HomeView> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          OutletListView(fObj: fObj, index: index,)),
+                                      builder: (context) => OutletListView(
+                                            fObj: fObj,
+                                            index: index,
+                                          )),
                                 );
                               },
                               child: PopularFoodItemCell(
@@ -392,6 +395,7 @@ class _HomeViewState extends State<HomeView> {
                             builder: (context) => const SearchLocationView()));
                     setState(() {
                       isSelectCity = true;
+                      endEditing();
                     });
                   },
                 ),

@@ -49,7 +49,7 @@ class _DiscoveryViewState extends State<DiscoveryView> {
 
   @override
   Widget build(BuildContext context) {
-    var media = MediaQuery.of(context).size;
+    // var media = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: TColor.bg,
       body: NestedScrollView(

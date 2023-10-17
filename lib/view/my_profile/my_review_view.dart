@@ -28,6 +28,7 @@ class _MyReviewViewState extends State<MyReviewView> {
               backgroundColor: Colors.white,
               elevation: 1,
               pinned: true,
+              automaticallyImplyLeading: false,
               floating: false,
               centerTitle: false,
               leadingWidth: 0,

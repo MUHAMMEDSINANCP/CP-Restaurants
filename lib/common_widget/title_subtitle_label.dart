@@ -35,9 +35,10 @@ class TitleSubTitleLabel extends StatelessWidget {
           subtitle,
           textAlign: textAlign,
           style: TextStyle(
-              color: TColor.gray,
-              fontSize: fontSizeSubTitle,
-              fontWeight: FontWeight.w700),
+            color: TColor.gray,
+            fontSize: fontSizeSubTitle,
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ],
     );

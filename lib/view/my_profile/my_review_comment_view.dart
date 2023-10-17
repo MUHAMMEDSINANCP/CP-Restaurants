@@ -28,6 +28,7 @@ class _MyReviewCommentViewState extends State<MyReviewCommentView> {
               pinned: true,
               floating: false,
               centerTitle: false,
+              automaticallyImplyLeading: false,
               leadingWidth: 0,
               title: Row(
                 children: [
@@ -71,9 +72,9 @@ class _MyReviewCommentViewState extends State<MyReviewCommentView> {
                           blurRadius: 1,
                           offset: Offset(0, 1))
                     ]),
-                child:  UserReviewRow(
+                child: UserReviewRow(
                   isBottomActionBar: true,
-                   onCommentPress: () {
+                  onCommentPress: () {
                     Navigator.push(
                         context, PopupLayout(child: const CommentListView()));
                   },
@@ -105,18 +106,23 @@ class _MyReviewCommentViewState extends State<MyReviewCommentView> {
                   ),
                 ),
               ),
-
-              const SizedBox(width: 15,),
+              const SizedBox(
+                width: 15,
+              ),
               Expanded(
                 child: Container(
-                  decoration:
-                      BoxDecoration(color: TColor.gray.withOpacity(0.2), borderRadius: BorderRadius.circular(15)),
-                    child: TextField(controller: txtComment, decoration: const InputDecoration(
-                      contentPadding:  EdgeInsets.symmetric(vertical: 4, horizontal: 15),
-                      hintText: "Typing your comment",
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none
-                    ),),
+                  decoration: BoxDecoration(
+                      color: TColor.gray.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: TextField(
+                    controller: txtComment,
+                    decoration: const InputDecoration(
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 4, horizontal: 15),
+                        hintText: "Typing your comment",
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none),
+                  ),
                 ),
               )
             ],

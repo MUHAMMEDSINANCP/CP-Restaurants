@@ -272,7 +272,7 @@ class _NearByMapListViewState extends State<NearByMapListView> {
                       hitText: "Search for restaurants…",
                       leftIcon: Icon(Icons.search, color: TColor.gray),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     )
                   ],

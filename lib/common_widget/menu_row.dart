@@ -5,12 +5,19 @@ import '../common/color_extension.dart';
 class MenuRow extends StatelessWidget {
   final String title;
   final String icon;
+  final Color? color;
+  final Color txtcolor;
+  final bool showleftIcon;
   final VoidCallback onPressed;
-  const MenuRow(
-      {super.key,
-      required this.title,
-      required this.icon,
-      required this.onPressed});
+  MenuRow({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.onPressed,
+    this.color,
+    Color? txtcolor,
+    this.showleftIcon = true,
+  }) : txtcolor = txtcolor ?? TColor.text;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +29,7 @@ class MenuRow extends StatelessWidget {
           children: [
             Image.asset(
               icon,
+              color: color,
               width: 25,
               height: 25,
               fit: BoxFit.fitWidth,
@@ -34,19 +42,19 @@ class MenuRow extends StatelessWidget {
                 title,
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    color: TColor.text,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700),
+                    color: txtcolor, fontSize: 16, fontWeight: FontWeight.w700),
               ),
             ),
-            const SizedBox(
-              width: 8,
-            ),
-            Icon(
-              Icons.navigate_next_outlined,
-              color: TColor.gray,
-              size: 25,
-            )
+            if (showleftIcon)
+              const SizedBox(
+                width: 8,
+              ),
+            if (showleftIcon)
+              Icon(
+                Icons.navigate_next_outlined,
+                color: TColor.gray,
+                size: 25,
+              )
           ],
         ),
       ),

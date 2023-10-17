@@ -1,4 +1,6 @@
 import 'package:cp_restaurants/common/extension.dart';
+import 'package:cp_restaurants/view/home/home_view.dart';
+import 'package:cp_restaurants/view/main_tab/main_tab_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
@@ -117,36 +119,42 @@ class _SearchLocationViewState extends State<SearchLocationView> {
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 itemBuilder: (context, index) {
                   var rObj = recentlyArr[index] as Map? ?? {};
-                  return Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        border: Border(
-                            bottom:
-                                BorderSide(color: TColor.gray, width: 0.5))),
-                    child: Row(
-                      children: [
-                        Text(
-                          rObj["emoji"].toString(),
-                          style: const TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w700),
-                        ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        Expanded(
-                          child: Text(
-                            rObj["name"].toString(),
-                            style: TextStyle(
-                                color: TColor.text,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                      endEditing();
+                    },
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                          border: Border(
+                              bottom:
+                                  BorderSide(color: TColor.gray, width: 0.5))),
+                      child: Row(
+                        children: [
+                          Text(
+                            rObj["emoji"].toString(),
+                            style: const TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.w700),
                           ),
-                        ),
-                        Icon(
-                          Icons.navigate_next,
-                          color: TColor.gray,
-                        )
-                      ],
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Expanded(
+                            child: Text(
+                              rObj["name"].toString(),
+                              style: TextStyle(
+                                  color: TColor.text,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Icon(
+                            Icons.navigate_next,
+                            color: TColor.gray,
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -195,7 +203,6 @@ class _SearchLocationViewState extends State<SearchLocationView> {
                           ],
                         ),
                       ),
-                      
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         children: cArr.map((cObj) {

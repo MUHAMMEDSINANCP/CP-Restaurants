@@ -9,7 +9,7 @@ class NearByListRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var media = MediaQuery.of(context).size;
+    // var media = MediaQuery.of(context).size;
 
     var rateVal = double.tryParse(fObj["rate"].toString()) ?? 0.0;
 

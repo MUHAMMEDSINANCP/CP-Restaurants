@@ -5,6 +5,7 @@ import '../common/color_extension.dart';
 class IconTextButton extends StatelessWidget {
   final String title;
   final String subTitle;
+  final Color? color;
   final String icon;
   final VoidCallback onPressed;
   const IconTextButton(
@@ -12,7 +13,7 @@ class IconTextButton extends StatelessWidget {
       required this.title,
       required this.subTitle,
       required this.icon,
-      required this.onPressed});
+      required this.onPressed,  this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class IconTextButton extends StatelessWidget {
         children: [
           Image.asset(
             icon,
+            color: color,
             width: 25,
             height: 25,
           ),

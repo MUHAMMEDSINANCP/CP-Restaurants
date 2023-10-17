@@ -111,12 +111,13 @@ class _LegendryListViewState extends State<LegendryListView> {
                             decoration: const BoxDecoration(
                                 gradient: LinearGradient(
                                     colors: [
-                                  Colors.black54,
+                                  Colors.black87,
+                                  Colors.black87,
                                   Colors.transparent,
                                   Colors.black54,
                                   Colors.black87,
                                 ],
-                                    begin: Alignment.center,
+                                    begin: Alignment.topCenter,
                                     end: Alignment.bottomCenter)),
                           ),
                           Container(

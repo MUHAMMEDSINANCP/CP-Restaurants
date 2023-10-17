@@ -29,6 +29,7 @@ class _MyLevelViewState extends State<MyLevelView> {
               floating: false,
               centerTitle: false,
               flexibleSpace: FlexibleSpaceBar(
+                titlePadding: EdgeInsets.zero,
                 title: Container(
                   width: media.width,
                   height: media.width * 0.80,
@@ -148,7 +149,7 @@ class _MyLevelViewState extends State<MyLevelView> {
                       padding: EdgeInsets.zero,
                       barRadius: const Radius.circular(7.5),
                       lineHeight: 15,
-                      percent: 0.35,
+                      percent: 0.45,
                       progressColor: TColor.primary,
                       backgroundColor: TColor.gray.withOpacity(0.4),
                     ),

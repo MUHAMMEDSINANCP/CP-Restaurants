@@ -79,6 +79,7 @@ class _MyNetworkViewState extends State<MyNetworkView> {
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: Colors.white,
               elevation: 1,
               pinned: true,
@@ -89,7 +90,7 @@ class _MyNetworkViewState extends State<MyNetworkView> {
                 children: [
                   IconButton(
                     onPressed: () {
-                        Navigator.pop(context);
+                      Navigator.pop(context);
                     },
                     icon: Image.asset(
                       "assets/img/back.png",
@@ -124,8 +125,8 @@ class _MyNetworkViewState extends State<MyNetworkView> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 4, horizontal: 15),
                 decoration: const BoxDecoration(
-                    color: Colors.white,
-                    ),
+                  color: Colors.white,
+                ),
                 child: Row(
                   children: [
                     SelectionButton(
@@ -150,7 +151,6 @@ class _MyNetworkViewState extends State<MyNetworkView> {
                           );
                         },
                         isSelect: selectTab == 1),
-                    
                   ],
                 ),
               ),

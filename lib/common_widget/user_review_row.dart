@@ -1,3 +1,6 @@
+import 'package:cp_restaurants/common_widget/popup_layout.dart';
+import 'package:cp_restaurants/view/home/comment_list_view.dart';
+import 'package:cp_restaurants/view/home/like_user_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:readmore/readmore.dart';
@@ -102,7 +105,7 @@ class UserReviewRow extends StatelessWidget {
                   color: TColor.primary,
                 ),
                 onRatingUpdate: (rating) {
-                  print(rating);
+                  // print(rating);
                 },
               ),
             ),
@@ -172,6 +175,8 @@ class UserReviewRow extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
+                  Navigator.push(
+                      context, PopupLayout(child: const LikeUserListView()));
                   if (onLikePress != null) {
                     onLikePress!();
                   }
@@ -185,6 +190,8 @@ class UserReviewRow extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
+                  Navigator.push(
+                      context, PopupLayout(child: const CommentListView()));
                   if (onCommentPress != null) {
                     onCommentPress!();
                   }
