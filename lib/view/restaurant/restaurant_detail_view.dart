@@ -257,7 +257,7 @@ class _RestaurantDetailViewState extends State<RestaurantDetailView> {
                                   padding: EdgeInsets.only(
                                       right: media.width * 0.15),
                                   child: Image.asset("assets/img/map_pin.png",
-                                      width: 25),
+                                      width: 30),
                                 )
                               ],
                             ),

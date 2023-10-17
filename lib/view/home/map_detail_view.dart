@@ -145,7 +145,7 @@ class _MapDetailViewState extends State<MapDetailView> {
                 alignment: Alignment.topCenter,
                 children: [
                   CustomGoogleMapMarkerBuilder(
-                    //screenshotDelay: const Duration(seconds: 4),
+                    screenshotDelay: const Duration(seconds: 4),
                     customMarkers: _customMarkers,
                     builder: (BuildContext context, Set<Marker>? markers) {
                       if (markers == null) {
