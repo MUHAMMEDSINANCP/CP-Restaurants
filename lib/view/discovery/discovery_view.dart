@@ -12,6 +12,8 @@ class DiscoveryView extends StatefulWidget {
 }
 
 class _DiscoveryViewState extends State<DiscoveryView> {
+  TextEditingController txtSearch = TextEditingController();
+
   List listArr = [
     {
       "name": "Nearby",
@@ -99,7 +101,10 @@ class _DiscoveryViewState extends State<DiscoveryView> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NearByMapListView()));
+                            builder: (context) => NearByMapListView(
+                                  listArr: listArr,
+                                  selectedItemIndex: index,
+                                )));
                   },
                   child: DiscoveryCell(
                     fObj: fObj,

@@ -11,7 +11,10 @@ import '../../common_widget/popup_layout.dart';
 import 'filter_view.dart';
 
 class NearByMapListView extends StatefulWidget {
-  const NearByMapListView({super.key});
+  final List listArr;
+    final int selectedItemIndex;
+
+  const NearByMapListView({super.key, required this.listArr, required this.selectedItemIndex});
 
   @override
   State<NearByMapListView> createState() => _NearByMapListViewState();
@@ -78,7 +81,7 @@ class _NearByMapListViewState extends State<NearByMapListView> {
       "category": "Egg, Italian",
       "image": "assets/img/t2.png",
       "time": "11:30AM to 11:00PM",
-      "rate": 4.8
+      "rate": 3.8
     },
     {
       "name": "Burger Hot",
@@ -86,9 +89,10 @@ class _NearByMapListViewState extends State<NearByMapListView> {
       "category": "Pizza, Italian",
       "image": "assets/img/t3.png",
       "time": "11:30AM to 11:00PM",
-      "rate": 4.8
+      "rate": 1.8
     }
   ];
+  int selectedItemIndex = 0; // Initialize with the default item.
 
   @override
   void initState() {
@@ -186,7 +190,8 @@ class _NearByMapListViewState extends State<NearByMapListView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Nearby",
+                    // widget.listArr[widget.selectedItemIndex]["name"] ,
+                     widget.listArr[widget.selectedItemIndex]["name"] ?? "No Name",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: TColor.text,
@@ -194,7 +199,8 @@ class _NearByMapListViewState extends State<NearByMapListView> {
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
-                    "34 Place",
+                                "${widget.listArr[widget.selectedItemIndex]["place"]} Places",
+
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: TColor.gray,
@@ -227,7 +233,7 @@ class _NearByMapListViewState extends State<NearByMapListView> {
               backgroundColor: Colors.white,
               elevation: 1,
               pinned: false,
-              floating: true, 
+              floating: true,
               automaticallyImplyLeading: false,
               primary: false,
               expandedHeight: 90,
@@ -237,24 +243,26 @@ class _NearByMapListViewState extends State<NearByMapListView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Image.asset(
-                          'assets/img/map_pin.png',
-                          width: 15,
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        Text(
-                          "New York City",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: TColor.text,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ],
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/img/map_pin.png',
+                            width: 15,
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            "New York City",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                color: TColor.text,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 4,
@@ -264,6 +272,9 @@ class _NearByMapListViewState extends State<NearByMapListView> {
                       hitText: "Search for restaurants…",
                       leftIcon: Icon(Icons.search, color: TColor.gray),
                     ),
+                    SizedBox(
+                      height: 10,
+                    )
                   ],
                 ),
               ),

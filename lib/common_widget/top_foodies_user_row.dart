@@ -118,4 +118,5 @@ class TopFoodiesUserRow extends StatelessWidget {
         return TColor.gray;
     }
   }
+  
 }

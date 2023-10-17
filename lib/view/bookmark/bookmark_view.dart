@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/line_textfield.dart';
 import '../../common_widget/near_by_list_row.dart';
+import '../../common_widget/popup_layout.dart';
+import '../discovery/filter_view.dart';
 
 class BookmarkView extends StatefulWidget {
   const BookmarkView({super.key});
@@ -28,7 +30,7 @@ class _BookmarkViewState extends State<BookmarkView> {
       "category": "Sushi, Japan",
       "image": "assets/img/l2.png",
       "time": "11:30AM to 11:00PM",
-      "rate": 3.8
+      "rate": 1.7
     },
     {
       "name": "Steak House",
@@ -44,7 +46,7 @@ class _BookmarkViewState extends State<BookmarkView> {
       "category": "Seafood, Spain",
       "image": "assets/img/t1.png",
       "time": "11:30AM to 11:00PM",
-      "rate": 5.0
+      "rate": 3.7
     },
     {
       "name": "Egg Tomato",
@@ -52,7 +54,7 @@ class _BookmarkViewState extends State<BookmarkView> {
       "category": "Egg, Italian",
       "image": "assets/img/t2.png",
       "time": "11:30AM to 11:00PM",
-      "rate": 4.8
+      "rate": 3.8
     },
     {
       "name": "Burger Hot",
@@ -60,7 +62,7 @@ class _BookmarkViewState extends State<BookmarkView> {
       "category": "Pizza, Italian",
       "image": "assets/img/t3.png",
       "time": "11:30AM to 11:00PM",
-      "rate": 4.8
+      "rate": 4.9
     }
   ];
 
@@ -137,8 +139,8 @@ class _BookmarkViewState extends State<BookmarkView> {
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: TextButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //     context, PopupLayout(child: const FilterView()));
+                      Navigator.push(
+                          context, PopupLayout(child: const FilterView()));
                     },
                     child: Text(
                       "Filter",

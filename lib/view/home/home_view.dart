@@ -1,3 +1,4 @@
+import 'package:cp_restaurants/view/home/legendry_list_view.dart';
 import 'package:flutter/material.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/collection_food_item_cell.dart';
@@ -184,7 +185,14 @@ class _HomeViewState extends State<HomeView> {
                     //TODO: Legendary food
                     SelectionTextView(
                       title: "Legendary food",
-                      onSeeAllTap: () {},
+                      onSeeAllTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LegendryListView(),
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(
                       height: media.width * 0.48,
@@ -326,7 +334,7 @@ class _HomeViewState extends State<HomeView> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          OutletListView(fObj: fObj)),
+                                          OutletListView(fObj: fObj, index: index,)),
                                 );
                               },
                               child: PopularFoodItemCell(

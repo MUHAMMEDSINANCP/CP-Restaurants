@@ -7,7 +7,8 @@ import '../discovery/filter_view.dart';
 
 class OutletListView extends StatefulWidget {
   final Map fObj;
-  const OutletListView({super.key, required this.fObj});
+  final int index;
+  const OutletListView({super.key, required this.fObj, required this.index});
 
   @override
   State<OutletListView> createState() => _OutletListViewState();
@@ -75,23 +76,24 @@ class _OutletListViewState extends State<OutletListView> {
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              backgroundColor: TColor.list[0],
+              backgroundColor: TColor.list[(widget.index % TColor.list.length)],
               elevation: 0,
               expandedHeight: media.width * 0.667,
               floating: false,
               centerTitle: false,
               flexibleSpace: FlexibleSpaceBar(
+                titlePadding: EdgeInsets.zero,
                 title: Container(
                   width: media.width,
                   height: media.width * 0.667,
-                  color: TColor.list[0],
+                  color: TColor.list[(widget.index) % TColor.list.length],
                   child: Container(
                     padding: EdgeInsets.only(top: media.width * 0.25),
                     height: media.width * 0.8,
                     alignment: Alignment.center,
                     child: Image.asset(
                       widget.fObj["image"].toString(),
-                      width: media.width * 0.25,
+                      width: media.width * 0.27,
                       fit: BoxFit.fitWidth,
                     ),
                   ),
@@ -116,7 +118,7 @@ class _OutletListViewState extends State<OutletListView> {
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 20,
                           fontWeight: FontWeight.w700),
                     ))
               ],

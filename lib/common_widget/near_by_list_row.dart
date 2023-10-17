@@ -56,7 +56,13 @@ class NearByListRow extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           vertical: 2, horizontal: 8),
                       decoration: BoxDecoration(
-                        color: rateVal < 4.0 ? TColor.rating : TColor.primary,
+                        color: (rateVal < 2.0)
+                            ? Colors.red
+                            : (rateVal < 3.0)
+                                ? Colors.orange
+                                : (rateVal < 4.0)
+                                    ? Colors.yellow
+                                    : TColor.primary,
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Text(
@@ -64,7 +70,7 @@ class NearByListRow extends StatelessWidget {
                         textAlign: TextAlign.left,
                         style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
+                            fontSize: 18,
                             fontWeight: FontWeight.w700),
                       ),
                     )
