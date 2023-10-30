@@ -1,7 +1,9 @@
+import 'package:cp_restaurants/services/location_provider.dart';
 import 'package:cp_restaurants/view/my_profile/my_level_view.dart';
 import 'package:cp_restaurants/view/my_profile/my_network_view.dart';
 import 'package:cp_restaurants/view/my_profile/my_review_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/icon_text_button.dart';
 import '../../common_widget/menu_row.dart';
@@ -15,11 +17,21 @@ class MyProfileView extends StatefulWidget {
 
 class _MyProfileViewState extends State<MyProfileView> {
   @override
+  void initState() {
+    // TODO: implement initState
+
+    Provider.of<LocationProvider>(context, listen: false).determinePosition();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: TColor.bg,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -44,7 +56,16 @@ class _MyProfileViewState extends State<MyProfileView> {
               decoration: const BoxDecoration(
                   color: Colors.white,
                   boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 1)]),
-              child: Column(
+              child: Consumer<LocationProvider>(
+                  builder: (context, locationProvider, child) {
+                String? locationCity;
+                if (locationProvider.currentLocationName != null) {
+                  locationCity = locationProvider.currentLocationName!
+                      .subLocality; // here you can choose which location area shoul show on ui
+                } else {
+                  locationCity = "Unknown Location";
+                }
+                return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ClipRRect(
@@ -63,7 +84,7 @@ class _MyProfileViewState extends State<MyProfileView> {
                       height: media.width * 0.04,
                     ),
                     Text(
-                      "Lilja Peltola",
+                      "Muhammed Sinan CP",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: TColor.text,
@@ -74,7 +95,7 @@ class _MyProfileViewState extends State<MyProfileView> {
                       height: media.width * 0.025,
                     ),
                     Text(
-                      "New York City",
+                      locationCity!,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: TColor.gray,
@@ -84,7 +105,9 @@ class _MyProfileViewState extends State<MyProfileView> {
                     SizedBox(
                       height: media.width * 0.1,
                     ),
-                  ]),
+                  ],
+                );
+              }),
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 4),

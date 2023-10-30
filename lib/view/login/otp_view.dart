@@ -90,7 +90,7 @@ class _OtpViewState extends State<OtpView> {
                         MaterialPageRoute<void>(
                             builder: (BuildContext context) =>
                                 const MainTabView()),
-                        (route) => true);
+                        (route) => false);
                   },
                 ),
               ],

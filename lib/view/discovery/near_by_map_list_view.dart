@@ -12,9 +12,10 @@ import 'filter_view.dart';
 
 class NearByMapListView extends StatefulWidget {
   final List listArr;
-    final int selectedItemIndex;
+  final int selectedItemIndex;
 
-  const NearByMapListView({super.key, required this.listArr, required this.selectedItemIndex});
+  const NearByMapListView(
+      {super.key, required this.listArr, required this.selectedItemIndex});
 
   @override
   State<NearByMapListView> createState() => _NearByMapListViewState();
@@ -191,7 +192,8 @@ class _NearByMapListViewState extends State<NearByMapListView> {
                 children: [
                   Text(
                     // widget.listArr[widget.selectedItemIndex]["name"] ,
-                     widget.listArr[widget.selectedItemIndex]["name"] ?? "No Name",
+                    widget.listArr[widget.selectedItemIndex]["name"] ??
+                        "No Name",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: TColor.text,
@@ -199,8 +201,7 @@ class _NearByMapListViewState extends State<NearByMapListView> {
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
-                                "${widget.listArr[widget.selectedItemIndex]["place"]} Places",
-
+                    "${widget.listArr[widget.selectedItemIndex]["place"]} Places",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: TColor.gray,
@@ -296,6 +297,7 @@ class _NearByMapListViewState extends State<NearByMapListView> {
                     mapType: MapType.normal,
                     initialCameraPosition: _kLake,
                     compassEnabled: false,
+                    // ignore: prefer_collection_literals
                     gestureRecognizers: Set()
                       ..add(Factory<PanGestureRecognizer>(
                         () => PanGestureRecognizer(),

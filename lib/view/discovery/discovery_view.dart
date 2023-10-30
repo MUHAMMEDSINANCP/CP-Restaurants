@@ -58,6 +58,7 @@ class _DiscoveryViewState extends State<DiscoveryView> {
             SliverAppBar(
               backgroundColor: Colors.white,
               elevation: 0,
+              automaticallyImplyLeading: false,
               pinned: true,
               floating: false,
               centerTitle: false,

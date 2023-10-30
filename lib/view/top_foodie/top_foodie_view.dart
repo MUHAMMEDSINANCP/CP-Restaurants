@@ -83,6 +83,7 @@ class _TopFoodieViewState extends State<TopFoodieView> {
               elevation: 1,
               pinned: true,
               floating: false,
+              automaticallyImplyLeading: false,
               centerTitle: false,
               leadingWidth: 0,
               title: Row(
@@ -111,6 +112,7 @@ class _TopFoodieViewState extends State<TopFoodieView> {
               primary: false,
               floating: false,
               backgroundColor: Colors.white,
+              automaticallyImplyLeading: false,
               expandedHeight: 70,
               elevation: 1,
               flexibleSpace: Container(

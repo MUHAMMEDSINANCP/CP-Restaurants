@@ -80,6 +80,7 @@ class _BookmarkViewState extends State<BookmarkView> {
               floating: false,
               centerTitle: false,
               leadingWidth: 0,
+              automaticallyImplyLeading: false,
               title: Row(
                 children: [
                   Image.asset(
@@ -106,6 +107,7 @@ class _BookmarkViewState extends State<BookmarkView> {
               backgroundColor: Colors.white,
               elevation: 1,
               pinned: false,
+              automaticallyImplyLeading: false,
               floating: true,
               primary: false,
               expandedHeight: 50,

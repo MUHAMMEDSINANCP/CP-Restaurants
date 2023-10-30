@@ -1,6 +1,10 @@
 import 'package:cp_restaurants/common/extension.dart';
+import 'package:cp_restaurants/services/location_provider.dart';
+import 'package:cp_restaurants/view/discovery/near_by_map_list_view.dart';
 import 'package:cp_restaurants/view/home/legendry_list_view.dart';
+import 'package:cp_restaurants/view/home/map_detail_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/collection_food_item_cell.dart';
 import '../../common_widget/favorite_food_item_cell.dart';
@@ -91,6 +95,15 @@ class _HomeViewState extends State<HomeView> {
   ];
 
   @override
+  void initState() {
+    // TODO: implement initState
+
+    Provider.of<LocationProvider>(context, listen: false).determinePosition();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
     return Scaffold(
@@ -104,12 +117,12 @@ class _HomeViewState extends State<HomeView> {
                     elevation: 0,
                     pinned: true,
                     floating: false,
+                    automaticallyImplyLeading: false,
                     centerTitle: false,
                     leading: IconButton(
-                      icon: Image.asset(
-                        "assets/img/back.png",
-                        width: 24,
-                        height: 30,
+                      icon: Icon(
+                        Icons.location_searching,
+                        color: TColor.primary,
                       ),
                       onPressed: () {
                         setState(() {
@@ -117,27 +130,38 @@ class _HomeViewState extends State<HomeView> {
                         });
                       },
                     ),
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "New York City",
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              color: TColor.text,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        Text(
-                          "Your location",
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              color: TColor.gray,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ],
-                    ),
+                    title: Consumer<LocationProvider>(
+                        builder: (context, locationProvider, child) {
+                      String? locationCity;
+                      if (locationProvider.currentLocationName != null) {
+                        locationCity = locationProvider.currentLocationName!
+                            .subLocality; // here you can choose which location area shoul show on ui
+                      } else {
+                        locationCity = "Unknown Location";
+                      }
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            locationCity!,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: TColor.text,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            "Your location",
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: TColor.gray,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      );
+                    }),
                     actions: [
                       IconButton(
                         icon: Image.asset(
@@ -146,9 +170,11 @@ class _HomeViewState extends State<HomeView> {
                           height: 30,
                         ),
                         onPressed: () {
-                          setState(() {
-                            isSelectCity = false;
-                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MapDetailView()),
+                          );
                         },
                       ),
                       // IconButton(
@@ -171,6 +197,7 @@ class _HomeViewState extends State<HomeView> {
                     pinned: false,
                     floating: true,
                     primary: false,
+                    automaticallyImplyLeading: false,
                     title: RoundTextField(
                       controller: txtSearch,
                       hitText: "Search for restaurants…",

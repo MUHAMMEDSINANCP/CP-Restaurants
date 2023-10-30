@@ -38,6 +38,10 @@ dependencies:
   percent_indicator: ^4.2.3
   readmore: ^2.2.0
   widget_mask: ^1.0.0+0
+  intl: ^0.18.1
+  provider: ^6.0.5
+  geocoding: ^2.1.1
+  geolocator: ^10.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
