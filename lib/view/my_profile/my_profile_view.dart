@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cp_restaurants/services/location_provider.dart';
 import 'package:cp_restaurants/view/my_profile/my_level_view.dart';
 import 'package:cp_restaurants/view/my_profile/my_network_view.dart';
 import 'package:cp_restaurants/view/my_profile/my_review_view.dart';
+import 'package:cp_restaurants/view/on_boarding/on_boarding_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../common/color_extension.dart';
@@ -18,11 +21,32 @@ class MyProfileView extends StatefulWidget {
 class _MyProfileViewState extends State<MyProfileView> {
   @override
   void initState() {
-    // TODO: implement initState
-
     Provider.of<LocationProvider>(context, listen: false).determinePosition();
+    fetchUserName();
 
     super.initState();
+  }
+
+  String name = "";
+  String email = "";
+  String mobile = "";
+
+  void fetchUserName() async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+
+      if (mounted) {
+        setState(() {
+          name = userSnapshot['name'] ?? 'First Name';
+          email = userSnapshot['email'] ?? 'Email';
+          mobile = userSnapshot['mobile_number'] ?? 'Mobile';
+        });
+      }
+    }
   }
 
   @override
@@ -84,11 +108,31 @@ class _MyProfileViewState extends State<MyProfileView> {
                       height: media.width * 0.04,
                     ),
                     Text(
-                      "Muhammed Sinan CP",
+                      name,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: TColor.text,
                           fontSize: 20,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Divider(
+                      color: TColor.gray,
+                      height: 1,
+                    ),
+                    Text(
+                      email,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: TColor.primary,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      mobile,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: TColor.gray,
+                          fontSize: 15,
                           fontWeight: FontWeight.w700),
                     ),
                     SizedBox(
@@ -197,7 +241,9 @@ class _MyProfileViewState extends State<MyProfileView> {
                     showleftIcon: false,
                     txtcolor: Colors.red,
                     color: Colors.red,
-                    onPressed: () {},
+                    onPressed: () {
+                      confirmLogout();
+                    },
                   ),
                   const Divider(
                     color: Colors.black26,
@@ -209,6 +255,79 @@ class _MyProfileViewState extends State<MyProfileView> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> confirmLogout() async {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Center(
+            child: RichText(
+              text: TextSpan(
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.black, // Default color for text
+                ),
+                children: <TextSpan>[
+                  const TextSpan(
+                    text: 'Logout from ',
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: 'CP Restaurants',
+                    style: TextStyle(
+                      color: TColor.primary, // Change color to yellow
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          content: const Text('Are you sure you want to logout?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text(
+                'Cancel',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () async {
+                // Perform logout logic here
+                await FirebaseAuth.instance.signOut();
+
+                if (mounted) {
+                  Navigator.of(context).pop();
+                }
+
+                if (mounted) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const OnBoardingView(),
+                    ),
+                  );
+                }
+              },
+              child: const Text(
+                'Logout',
+                style:
+                    TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

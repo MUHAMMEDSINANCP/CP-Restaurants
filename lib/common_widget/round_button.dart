@@ -7,11 +7,15 @@ class RoundButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
   final RoundButtonType type;
-  const RoundButton(
-      {super.key,
-      required this.title,
-      required this.onPressed,
-      this.type = RoundButtonType.white});
+  final bool isLoading;
+
+  const RoundButton({
+    super.key,
+    required this.title,
+    required this.onPressed,
+    this.type = RoundButtonType.white,
+    this.isLoading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +29,21 @@ class RoundButton extends StatelessWidget {
         textColor:
             type == RoundButtonType.white ? TColor.primary : Colors.white,
         height: 55,
-        child: Text(
-          title,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-        ),
+        child: isLoading
+            ? const SizedBox(
+                height: 26,
+                width: 26,
+                child: CircularProgressIndicator(
+                  strokeWidth: 5,
+                  color: Colors.white,
+                  backgroundColor: Colors.greenAccent,
+                ),
+              )
+            : Text(
+                title,
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              ),
       ),
     );
   }

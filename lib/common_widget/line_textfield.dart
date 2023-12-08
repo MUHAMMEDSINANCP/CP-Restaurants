@@ -6,27 +6,35 @@ class LineTextField extends StatelessWidget {
   final String hitText;
   final bool obscureText;
   final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
+  final Widget? suffixIcon;
   final bool isClear;
   final VoidCallback? onClearPressed;
-  const LineTextField(
-      {super.key,
-      required this.hitText,
-      required this.controller,
-      this.obscureText = false,
-      this.keyboardType,
-      this.isClear = false,
-      this.onClearPressed});
+
+  const LineTextField({
+    super.key,
+    required this.hitText,
+    required this.controller,
+    this.obscureText = false,
+    this.keyboardType,
+    this.isClear = false,
+    this.onClearPressed,
+    this.validator,
+    this.suffixIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: TextField(
+      child: TextFormField(
+        validator: validator,
         controller: controller,
         keyboardType: keyboardType,
         obscureText: obscureText,
         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
         decoration: InputDecoration(
+          suffix: suffixIcon,
           hintText: hitText,
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: TColor.gray),
