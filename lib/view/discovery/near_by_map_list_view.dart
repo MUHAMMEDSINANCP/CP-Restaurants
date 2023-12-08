@@ -23,6 +23,7 @@ class NearByMapListView extends StatefulWidget {
 
 class _NearByMapListViewState extends State<NearByMapListView> {
   TextEditingController txtSearch = TextEditingController();
+  // ignore: unused_field
   GoogleMapController? _controller;
 
   final locations = const [

@@ -1,6 +1,5 @@
 import 'package:cp_restaurants/common/extension.dart';
 import 'package:cp_restaurants/services/location_provider.dart';
-import 'package:cp_restaurants/view/discovery/near_by_map_list_view.dart';
 import 'package:cp_restaurants/view/home/legendry_list_view.dart';
 import 'package:cp_restaurants/view/home/map_detail_view.dart';
 import 'package:flutter/material.dart';
@@ -96,8 +95,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   void initState() {
-    // TODO: implement initState
-
+ 
     Provider.of<LocationProvider>(context, listen: false).determinePosition();
 
     super.initState();
@@ -210,8 +208,7 @@ class _HomeViewState extends State<HomeView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    //TODO: Legendary food
-                    SelectionTextView(
+                     SelectionTextView(
                       title: "Legendary food",
                       onSeeAllTap: () {
                         Navigator.push(
@@ -248,8 +245,7 @@ class _HomeViewState extends State<HomeView> {
                           }),
                     ),
 
-                    //TODO: Trending this week
-                    SelectionTextView(
+                     SelectionTextView(
                       title: "Trending this week",
                       onSeeAllTap: () {
                         Navigator.push(
@@ -287,8 +283,7 @@ class _HomeViewState extends State<HomeView> {
                           }),
                     ),
 
-                    //TODO: Collections by Capi
-                    SelectionTextView(
+                     SelectionTextView(
                       title: "Collections by Capi",
                       onSeeAllTap: () {
                         Navigator.push(
@@ -314,8 +309,7 @@ class _HomeViewState extends State<HomeView> {
                           }),
                     ),
 
-                    //TODO: Favorite Cuisines
-                    SelectionTextView(
+                     SelectionTextView(
                       title: "Favorite Cuisines",
                       onSeeAllTap: () {},
                     ),

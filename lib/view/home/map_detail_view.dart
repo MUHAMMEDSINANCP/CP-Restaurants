@@ -17,6 +17,7 @@ class MapDetailView extends StatefulWidget {
 
 class _MapDetailViewState extends State<MapDetailView> {
   TextEditingController txtSearch = TextEditingController();
+  // ignore: unused_field
   GoogleMapController? _controller;
 
   final locations = const [
@@ -155,6 +156,7 @@ class _MapDetailViewState extends State<MapDetailView> {
                         mapType: MapType.normal,
                         initialCameraPosition: _kLake,
                         compassEnabled: false,
+                        // ignore: prefer_collection_literals
                         gestureRecognizers: Set()
                           ..add(Factory<PanGestureRecognizer>(
                             () => PanGestureRecognizer(),

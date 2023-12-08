@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/line_textfield.dart';
 import '../../common_widget/round_button.dart';
-import 'otp_view.dart';
-
+ 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
 

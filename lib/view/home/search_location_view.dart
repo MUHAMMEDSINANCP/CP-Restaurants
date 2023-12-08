@@ -1,7 +1,5 @@
 import 'package:cp_restaurants/common/extension.dart';
-import 'package:cp_restaurants/view/home/home_view.dart';
-import 'package:cp_restaurants/view/main_tab/main_tab_view.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
 import '../../common_widget/line_textfield.dart';
@@ -50,8 +48,7 @@ class _SearchLocationViewState extends State<SearchLocationView> {
 
   @override
   void initState() {
-    // TODO: implement initState
-    txtSearch.addListener(() {
+     txtSearch.addListener(() {
       if (mounted) {
         setState(() {});
       }

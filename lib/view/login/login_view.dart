@@ -6,8 +6,7 @@ import '../../common/color_extension.dart';
 import '../../common_widget/line_textfield.dart';
 import '../../common_widget/round_button.dart';
 import 'forgot_password_view.dart';
-import 'otp_view.dart';
-import 'signup_view.dart';
+ import 'signup_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});

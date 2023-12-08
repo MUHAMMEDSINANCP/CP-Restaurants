@@ -503,7 +503,7 @@ class _RestaurantDetailViewState extends State<RestaurantDetailView> {
                     color: TColor.gray,
                   ),
 
-                  // TODO: Trending this week
+                  // Trending this week
 
                   SelectionTextView(
                     title: "Same Restaurants",
@@ -536,7 +536,7 @@ class _RestaurantDetailViewState extends State<RestaurantDetailView> {
                         }),
                   ),
 
-                  //TODO: Collections by Capi
+                  // Collections by Capi
                   SelectionTextView(
                     title: "Collections by Capi",
                     onSeeAllTap: () {},
