@@ -1,18 +1,19 @@
-# cp_restaurants
+## CP Restaurants
+A Firebase-authenticated app built on clean architecture, offering restaurant listings, seamless ordering, customer reviews, personalized recommendations, and convenient payment integration.
 
-A new Flutter project.
+### Key Features:
+Restaurant Listings: User-friendly interface displaying restaurant details, menus, and locations.
+Seamless Ordering: Smooth and secure food ordering directly from the app.
+Customer Reviews & Ratings: Integrated feedback system for informed decision-making.
+Restaurant Recommendations: Personalized suggestions for a delightful dining experience.
+Payment Integration: Convenient and secure payment options for hassle-free transactions.
 
-## Getting Started
+### Usage:
+CP Restaurants simplifies the dining experience, offering comprehensive restaurant listings, easy ordering, customer reviews, personalized suggestions, and secure payment options—all in one app.
 
-This project is a starting point for a Flutter application.
+### Feedback:
+For any suggestions or feedback, please reach out at cpmuhammedsinan@gmail.com. Your inputs are valued in enhancing CP Restaurants.
 
-A few resources to get you started if this is your first Flutter project:
+### Technologies Used:
+Firebase Authentication, Clean Architecture, Firestore Database
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-This is a new Read me file
